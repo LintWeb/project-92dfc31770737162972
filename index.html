@@ -325,6 +325,22 @@
             .nav-links { display: none; }
             section { padding: 3rem 0; }
         }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
@@ -346,7 +362,7 @@
     <main>
         <section id="hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content reveal">
                     <h1>Experience the Best Game at Turf 24</h1>
                     <p>Premium synthetic grass, professional lighting, and an unmatched football experience in the heart of Chittagong.</p>
                     <a href="tel:+8801768279264" class="btn"><i class="fas fa-phone-alt"></i> Call Now</a>
@@ -356,20 +372,20 @@
 
         <section id="features">
             <div class="container">
-                <h2 style="margin-bottom: 3.5rem;">Why Choose Turf 24?</h2>
+                <h2 style="margin-bottom: 3.5rem;" class="reveal">Why Choose Turf 24?</h2>
                 
                 <div class="features-grid-new">
-                    <div class="feature-card-new">
+                    <div class="feature-card-new reveal delay-1">
                         <div class="icon-circle"><i class="fas fa-leaf"></i></div>
                         <h3>Standard Grass</h3>
                         <p>Our high-quality standard synthetic turf provides excellent grip and shock absorption for a professional feel.</p>
                     </div>
-                    <div class="feature-card-new">
+                    <div class="feature-card-new reveal delay-2">
                         <div class="icon-circle"><i class="fas fa-lightbulb"></i></div>
                         <h3>Pro Lighting</h3>
                         <p>Top-tier floodlights designed for sports, ensuring perfect visibility for evening and night matches.</p>
                     </div>
-                    <div class="feature-card-new">
+                    <div class="feature-card-new reveal delay-3">
                         <div class="icon-circle"><i class="fas fa-clock"></i></div>
                         <h3>24/7 Access</h3>
                         <p>Play whenever you want. We are open around the clock to accommodate your team's schedule.</p>
@@ -377,10 +393,10 @@
                 </div>
 
                 <div class="features-gallery">
-                    <div class="gallery-item">
+                    <div class="gallery-item reveal delay-1">
                         <img src="images/chat-upload-1770737387762-1.jpeg" alt="Turf 24 Pitch View">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item reveal delay-2">
                         <img src="images/chat-upload-1770737741288-1.jpeg" alt="Turf 24 High Angle View">
                     </div>
                 </div>
@@ -390,7 +406,7 @@
         <section id="info">
             <div class="container">
                 <div class="info-container">
-                    <div class="info-content">
+                    <div class="info-content reveal">
                         <div class="rating"><i class="fas fa-star"></i> 4.3 Rating (23 Reviews)</div>
                         <h2>Visit Us Today</h2>
                         <p>Join the community of football enthusiasts at Chittagong's favorite turf destination.</p>
@@ -412,7 +428,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="map-container" style="border-radius: 15px; overflow: hidden; height: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <div class="map-container reveal delay-2" style="border-radius: 15px; overflow: hidden; height: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d98572.24479031809!2d91.6955918!3d22.3274674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd9d60e98de87%3A0xd47c5895ca23a2e1!2sTurf%2024!5e1!3m2!1sen!2sbd!4v1770737294457!5m2!1sen!2sbd" 
                             width="100%" 
@@ -441,6 +457,22 @@
 
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
