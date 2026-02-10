@@ -3,9 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>project-92dfc31770737162972</title>
+    <title>Turf 24 | Premium Football Turf in Chittagong</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --primary-light: #4caf50;
+            --accent: #ffd700;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+            --gray: #666;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; text-align: center; }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551952237-954a0e68786c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            background: var(--light);
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* Info Section */
+        #info {
+            background-color: var(--dark);
+            color: var(--white);
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .info-content .rating {
+            background: var(--primary);
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .info-container { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-links { display: none; }
+            section { padding: 3rem 0; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Blank white page -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">⚽ Turf 24</a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#info">Location</a></li>
+                    <li><a href="tel:+8801768279264">Call Now</a></li>
+                </ul>
+                <a href="tel:+8801768279264" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Call: +8801768279264</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Experience the Best Game at Turf 24</h1>
+                    <p>Premium synthetic grass, professional lighting, and an unmatched football experience in the heart of Chittagong.</p>
+                    <a href="tel:+8801768279264" class="btn">Book Your Slot</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>Why Choose Us?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🌱</span>
+                        <h3>Premium Grass</h3>
+                        <p>High-quality FIFA standard synthetic turf for better grip and reduced injury risk.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💡</span>
+                        <h3>Night Play</h3>
+                        <p>Professional grade floodlights ensuring a clear view for those late-night matches.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🚿</span>
+                        <h3>Amenities</h3>
+                        <p>Clean changing rooms, refreshments, and ample parking space for all players.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="info">
+            <div class="container">
+                <div class="info-container">
+                    <div class="info-content">
+                        <div class="rating">⭐ 4.3 Rating (23 Reviews)</div>
+                        <h2>Visit Us Today</h2>
+                        <p>Join the community of football enthusiasts at Chittagong's favorite turf destination.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span>📍</span>
+                                <div>
+                                    <strong>Address:</strong><br>
+                                    Beside jamil agro, shagorpar road chowdhury para, Halishahar, Chittagong, Bangladesh
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span>📞</span>
+                                <div>
+                                    <strong>Phone:</strong><br>
+                                    +8801768279264
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder" style="background: #333; border-radius: 15px; height: 350px; display: flex; align-items: center; justify-content: center; border: 2px dashed #555;">
+                        <div style="text-align: center; color: #888;">
+                            <p>Interactive Map View</p>
+                            <small>Halishahar, Chittagong</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">Turf 24</a>
+            <p>The ultimate destination for football lovers in Chittagong.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">FB</a>
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="WhatsApp">WA</a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> Turf 24. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
